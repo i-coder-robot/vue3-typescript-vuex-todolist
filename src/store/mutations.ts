@@ -17,15 +17,15 @@ export type Mutations = {
 
 export const mutations:MutationTree<State> & Mutations = {
     [MutationType.CreateItem](state,item){
-        state.items.unshift(item)
+        state.todoList.unshift(item)
     },
     [MutationType.SetItems](state,items){
-        state.items=items
+        state.todoList=items
     },
     [MutationType.CompleteItem](state,newItem){
-        const item = state.items.findIndex(s=>s.id===newItem.id)
+        const item = state.todoList.findIndex(s=>s.id===newItem.id)
         if (item===-1) return
-        state.items[item] = {...state.items[item],...newItem}
+        state.todoList[item] = {...state.todoList[item],...newItem}
     },
     [MutationType.SetLoading](state,value){
         state.loading = value

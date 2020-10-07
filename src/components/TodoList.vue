@@ -12,7 +12,7 @@ export default defineComponent({
   components: {TodoItem},
   setup(){
     const store = useStore()
-    const items = computed(()=store.state.items)
+    const items = computed(()=>store.state.todoList)
     return {items}
   }
 })

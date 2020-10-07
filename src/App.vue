@@ -25,8 +25,11 @@ export default defineComponent({
 <template>
   <div id="nav">
     <h1>
-      Vue3.0 TodoList + Typescript + Vuex 4
+      TodoList
     </h1>
+    <h2>
+      采用 Vue3.0 + Typescript + Vuex 4
+    </h2>
     <div v-if="loading">
       <h3>Loading...</h3>
     </div>
