@@ -1,30 +1,42 @@
+<script lang="ts">
+import {defineComponent,computed,onMounted} from 'vue'
+import NewItem from './components/AddTodoItem.vue'
+import TodoList from './components/TodoItem.vue'
+import {useStore} from './store'
+import {ActionTypes} from './store/actions'
+
+export default defineComponent({
+  components: {TodoList,NewItem},
+  setup(){
+    const store = useStore()
+    const loading = computed(()=>store.state.loading)
+    onMounted(()=>store.dispatch(ActionTypes.GetTodoItems))
+
+    const completedCount = computed(()=>store.getters.completedCount)
+    const totalCount = computed(()=>store.getters.totalCount)
+
+    return {loading,completedCount,totalCount}
+  }
+
+})
+
+</script>
+
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <h1>
+      Vue3.0 TodoList + Typescript + Vuex 4
+    </h1>
+    <div v-if="loading">
+      <h3>Loading...</h3>
+    </div>
+    <div v-else>
+      <p>
+        {{completedCount}} / {{totalCount}} 完成
+      </p>
+      <NewItem/>
+      <TodoList/>
+    </div>
   </div>
   <router-view/>
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
