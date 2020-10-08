@@ -1,21 +1,24 @@
 <script lang="ts">
-import {defineComponent,computed,onMounted} from 'vue'
+import {defineComponent, computed, onMounted} from 'vue'
 import AddTodoItem from './components/AddTodoItem.vue'
-import TodoList from './components/TodoItem.vue'
+import TodoList from './components/TodoList.vue'
 import {useStore} from './store'
 import {ActionTypes} from './store/actions'
 
 export default defineComponent({
-  components: {TodoList,AddTodoItem},
-  setup(){
+  components: {TodoList, AddTodoItem},
+  setup() {
     const store = useStore()
-    const loading = computed(()=>store.state.loading)
-    onMounted(()=>store.dispatch(ActionTypes.GetTodoItems))
+    const loading = computed(() => store.state.loading)
+    onMounted(() => {
+      console.log("App...")
+      store.dispatch(ActionTypes.GetTodoItems)
+    })
 
-    const completedCount = computed(()=>store.getters.completedCount)
-    const totalCount = computed(()=>store.getters.totalCount)
+    const completedCount = computed(() => store.getters.completedCount)
+    const totalCount = computed(() => store.getters.totalCount)
 
-    return {loading,completedCount,totalCount}
+    return {loading, completedCount, totalCount}
   }
 
 })
@@ -35,10 +38,11 @@ export default defineComponent({
     </div>
     <div v-else>
       <p>
-        {{completedCount}} / {{totalCount}} 完成
+        {{ completedCount }} / {{ totalCount }} 完成
       </p>
-      <AddTodoItem /><br/><br/>
-      <TodoList />
+      <AddTodoItem/>
+      <br/><br/>
+      <TodoList/>
     </div>
   </div>
   <router-view/>

@@ -11,13 +11,13 @@
       />
     </div>
     <div class="ml-6">
-      <h4 class="text-xl text-gray-900 leading-tight">{{ todoContext }}</h4>
+      <h4 class="text-xl text-gray-900 leading-tight">{{ task }}</h4>
     </div>
   </div>
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import {defineComponent,onMounted} from 'vue'
 import {useStore} from '@/store'
 import {MutationType} from '@/store/mutations'
 
@@ -25,10 +25,13 @@ export default defineComponent({
   name: "TodoItem",
   props: {
     id: {type: Number, required: true},
-    todoContext: {type: String, required: true},
+    task: {type: String, required: true},
     completed: {type: Boolean, required: true}
   },
   setup(props) {
+    onMounted(()=>{
+      console.log('TodoItem')
+    })
     const store = useStore()
     const toggleCompletion = () => {
       store.commit(MutationType.CompleteItem, {
