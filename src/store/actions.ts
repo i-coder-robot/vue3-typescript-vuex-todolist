@@ -26,11 +26,6 @@ export const actions: ActionTree<State, State> & Actions = {
         await sleep(1000)
         commit(MutationType.SetLoading,false)
         commit(MutationType.SetItems,[
-            {
-                id:1,
-                task:'创建一个任务吧',
-                completed:false
-            }
         ])
     }
 }

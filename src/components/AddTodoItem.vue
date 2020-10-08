@@ -9,7 +9,7 @@
             placeholder="添加一个任务吧!"
         />
       </div>
-      <div>
+      <div class="flex-shrink-0">
         <button
             type="submit"
             class = "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded"
@@ -18,11 +18,7 @@
         </button>
       </div>
     </div>
-
-
-
   </form>
-
 </template>
 
 <script lang="ts">

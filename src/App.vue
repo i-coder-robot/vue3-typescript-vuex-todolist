@@ -20,28 +20,26 @@ export default defineComponent({
 
     return {loading, completedCount, totalCount}
   }
-
 })
 
 </script>
 
 <template>
-  <div id="nav">
-    <h1>
+  <div class="container mx-auto mt-4">
+    <h1 class="text-3xl text-center p-2 font-bold">
       TodoList
     </h1>
-    <h2>
+    <h2 class="text-3xl text-center p-2 font-bold">
       采用 Vue3.0 + Typescript + Vuex 4
     </h2>
     <div v-if="loading">
       <h3>Loading...</h3>
     </div>
     <div v-else>
-      <p>
+      <p class="text-center mt-2">
         {{ completedCount }} / {{ totalCount }} 完成
       </p>
       <AddTodoItem/>
-      <br/><br/>
       <TodoList/>
     </div>
   </div>

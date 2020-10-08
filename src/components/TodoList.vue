@@ -11,9 +11,6 @@ export default defineComponent({
   name: "TodoList",
   components: {TodoItem},
   setup() {
-    onMounted(()=>{
-      console.log('TodoList')
-    })
     const store = useStore()
     const todolist = computed(() => {
       console.log('computed---todolist')
