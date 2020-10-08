@@ -37,7 +37,7 @@ export default defineComponent({
       <p>
         {{completedCount}} / {{totalCount}} 完成
       </p>
-      <AddTodoItem />
+      <AddTodoItem /><br/><br/>
       <TodoList />
     </div>
   </div>

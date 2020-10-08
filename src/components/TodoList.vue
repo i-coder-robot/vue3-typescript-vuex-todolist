@@ -1,7 +1,11 @@
 <template>
+  111
   <ul>
     <li v-for="item in todoList" :key="item">{{ item.id }}</li>
   </ul>
+  <hr/>
+  <br/><br/>
+  222
   <TodoItem v-for="item in todoList" :key="item" v-bind="item"/>
 </template>
 
@@ -15,7 +19,10 @@ export default defineComponent({
   components: {TodoItem},
   setup() {
     const store = useStore()
-    const todoList = computed(() => store.state.todoList)
+    const todoList = computed(() => {
+      console.log(store.state.todoList)
+      return store.state.todoList
+    })
     return {todoList}
   }
 })

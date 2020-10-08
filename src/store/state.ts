@@ -1,15 +1,15 @@
 export type TodoItem = {
     id:number,
-    todoContext: string,
+    task: string,
     completed: boolean
 }
 
 export type State = {
     loading: boolean
-    todoList: TodoItem[]
+    todolist: TodoItem[]
 }
 
 export const state:State={
     loading:false,
-    todoList:[]
+    todolist:[]
 }
