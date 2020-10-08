@@ -1,12 +1,12 @@
 <script lang="ts">
 import {defineComponent,computed,onMounted} from 'vue'
-import NewItem from './components/AddTodoItem.vue'
+import AddTodoItem from './components/AddTodoItem.vue'
 import TodoList from './components/TodoItem.vue'
 import {useStore} from './store'
 import {ActionTypes} from './store/actions'
 
 export default defineComponent({
-  components: {TodoList,NewItem},
+  components: {TodoList,AddTodoItem},
   setup(){
     const store = useStore()
     const loading = computed(()=>store.state.loading)
@@ -37,8 +37,8 @@ export default defineComponent({
       <p>
         {{completedCount}} / {{totalCount}} 完成
       </p>
-      <NewItem/>
-      <TodoList/>
+      <AddTodoItem />
+      <TodoList />
     </div>
   </div>
   <router-view/>

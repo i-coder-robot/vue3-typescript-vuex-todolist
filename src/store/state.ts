@@ -1,6 +1,6 @@
 export type TodoItem = {
     id:number,
-    context: string,
+    todoContext: string,
     completed: boolean
 }
 

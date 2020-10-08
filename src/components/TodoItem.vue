@@ -6,12 +6,12 @@
     <div class="flex-shrink-0 m-1 ml-3 align-middle">
       <input
           type="checkbox"
-             :checked="completed"
-             @change="toggleCompletion()"
+          :checked="completed"
+          @change="toggleCompletion()"
       />
     </div>
     <div class="ml-6">
-      <h4 class="text-xl text-gray-900 leading-tight">{{ todo }}</h4>
+      <h4 class="text-xl text-gray-900 leading-tight">{{ todoContext }}</h4>
     </div>
   </div>
 </template>
@@ -19,20 +19,20 @@
 <script>
 import {defineComponent} from 'vue'
 import {useStore} from '@/store'
-import { MutationType } from '@/store/mutations'
+import {MutationType} from '@/store/mutations'
 
 export default defineComponent({
   name: "TodoItem",
   props: {
-    id: {type:Number,required:true},
-    context:{type:String,required: true},
-    completed: {type:Boolean,required:true}
+    id: {type: Number, required: true},
+    todoContext: {type: String, required: true},
+    completed: {type: Boolean, required: true}
   },
-  setup(props){
+  setup(props) {
     const store = useStore()
-    const toggleCompletion = ()=>{
-      store.commit(MutationType.CompleteItem,{
-        id:props.id,
+    const toggleCompletion = () => {
+      store.commit(MutationType.CompleteItem, {
+        id: props.id,
         completed: !props.completed
       })
     }

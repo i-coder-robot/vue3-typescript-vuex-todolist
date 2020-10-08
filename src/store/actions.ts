@@ -28,7 +28,7 @@ export const actions: ActionTree<State, State> & Actions = {
         commit(MutationType.SetItems,[
             {
                 id:1,
-                context:'创建一个任务吧',
+                todoContext:'创建一个任务吧',
                 completed:false
             }
         ])

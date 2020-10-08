@@ -43,7 +43,7 @@ export default defineComponent({
       }
       const item: TodoItem = {
         id: Date.now(),
-        context: todo.value,
+        todoContext: todo.value,
         completed: false
       }
       store.commit(MutationType.CreateItem, item)

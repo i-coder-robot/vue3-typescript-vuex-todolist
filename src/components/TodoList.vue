@@ -1,5 +1,8 @@
 <template>
-  <TodoItem v-for="item in items" :key="item" v-bind="item"/>
+  <ul>
+    <li v-for="item in todoList" :key="item">{{ item.id }}</li>
+  </ul>
+  <TodoItem v-for="item in todoList" :key="item" v-bind="item"/>
 </template>
 
 <script lang="ts">
@@ -10,10 +13,10 @@ import TodoItem from "./TodoItem.vue"
 export default defineComponent({
   name: "TodoList",
   components: {TodoItem},
-  setup(){
+  setup() {
     const store = useStore()
-    const items = computed(()=>store.state.todoList)
-    return {items}
+    const todoList = computed(() => store.state.todoList)
+    return {todoList}
   }
 })
 </script>
