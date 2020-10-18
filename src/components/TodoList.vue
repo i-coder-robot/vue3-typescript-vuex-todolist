@@ -1,5 +1,8 @@
 <template>
-  <TodoItem v-for="item in todolist" :key="item" v-bind="item"/>
+  <div class="w">
+    <TodoItem v-for="item in todolist" :key="item" v-bind="item"/>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -23,5 +26,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+  .w{
+    margin-left: 50px ;
+    width: 80%;
+  }
 </style>

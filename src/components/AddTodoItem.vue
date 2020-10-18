@@ -1,24 +1,26 @@
 <template>
-  <form class="my-4" @submit.prevent="addTodoItem">
-    <div class="mx-auto flex items-center bg-white p-2 rounded-md shadow-md">
-      <div class="flex-grow m-1 ml-3">
-        <input
-            v-model="todo"
-            type="text"
-            class="w-full focus:outline-none"
-            placeholder="添加一个任务吧!"
-        />
+  <div class="w">
+    <form class="my-4" @submit.prevent="addTodoItem">
+      <div class="mx-auto flex items-center bg-white p-2 rounded-md shadow-md">
+        <div class="flex-grow m-1 ml-3">
+          <input
+              v-model="todo"
+              type="text"
+              class="w-full focus:outline-none"
+              placeholder="添加一个任务吧!"
+          />
+        </div>
+        <div class="flex-shrink-0">
+          <button
+              type="submit"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded"
+          >
+            添加
+          </button>
+        </div>
       </div>
-      <div class="flex-shrink-0">
-        <button
-            type="submit"
-            class = "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-3 rounded"
-        >
-          添加
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
@@ -54,5 +56,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+  .w {
+    margin-left: 50px ;
+    width: 80%;
+  }
 </style>
